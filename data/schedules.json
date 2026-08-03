@@ -1,0 +1,4 @@
+[
+ {"id":"s1","title":"Target Spring Restock Days","retailer":"Target","storeId":"","category":"All","days":["Monday","Wednesday","Friday","Saturday"],"time":"Morning","type":"Observed pattern","notes":"Example pattern. Update with local observations; not a guarantee."},
+ {"id":"s2","title":"Conroe Walmart TCG Vendor Check","retailer":"Walmart","storeId":"walmart-400","category":"TCG","days":["Thursday"],"time":"Afternoon","type":"Unconfirmed","notes":"Placeholder for a store-specific pattern."}
+]

@@ -1,0 +1,4 @@
+[
+ {"id":"r1","productId":"p3","storeId":"target-1115","status":"in-stock","quantity":4,"quantityKnown":true,"seenAt":"2026-08-03T09:30","reporter":"Deanna","inStoreLocation":"Toys, collectibles endcap","pickup":"unknown","shipping":"available","inStore":"available","source":"Manual sighting","confidence":"High","notes":"Sample report—edit or delete it.","photo":""},
+ {"id":"r2","productId":"p4","storeId":"walmart-400","status":"low-stock","quantity":2,"quantityKnown":true,"seenAt":"2026-08-03T07:15","reporter":"Alexis","inStoreLocation":"Toy aisle","pickup":"unavailable","shipping":"unknown","inStore":"available","source":"Retailer website","confidence":"Medium","notes":"Sample stale report.","photo":""}
+]
