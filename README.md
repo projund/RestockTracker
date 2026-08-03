@@ -20,3 +20,9 @@ Because the app loads JSON with `fetch()`, open it through a small local web ser
 - Retailer inventory is not checked automatically.
 - Store distances and coordinates are approximate starter data and should be verified before a public launch.
 - Firebase can later replace localStorage for shared updates and image storage.
+
+## Prototype permissions
+
+- Any user can update a sighting's stock status. Every update records the prior status, new status, user, time, quantity, and optional note.
+- Delete actions are inside the three-dot menu and require the prototype administrator passcode `12345`.
+- This client-side passcode is only a visual prototype control. It must be replaced with authenticated administrator permissions before public launch.
