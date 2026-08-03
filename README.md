@@ -1,28 +1,25 @@
-# Conroe Restock Tracker Prototype
+# Conroe Restock Tracker
 
-A single-page restock tracker for Walmart and Target locations around ZIP 77304.
+Static GitHub Pages prototype for community restock reports around ZIP 77304.
 
-## Run locally
-Because the app loads JSON with `fetch()`, open it through a small local web server rather than double-clicking `index.html`.
+## Publish manually
 
-- VS Code: install/open with Live Server
-- Python: `python -m http.server 8000` then open `http://localhost:8000`
+1. Extract the ZIP.
+2. Copy the contents of the `conroe-restock-tracker` folder into the root of the GitHub repository.
+3. Commit and push to the `Public` branch.
+4. GitHub Pages will rebuild automatically.
 
-## GitHub Pages
-1. Create a new GitHub repository.
-2. Upload the contents of this folder to the repository root.
-3. Open Settings → Pages.
-4. Under Build and deployment, choose **Deploy from a branch**.
-5. Select `main` and `/ (root)`, then Save.
+## Revision highlights
 
-## Prototype limitations
-- Changes are stored only in the current browser using localStorage.
-- Retailer inventory is not checked automatically.
-- Store distances and coordinates are approximate starter data and should be verified before a public launch.
-- Firebase can later replace localStorage for shared updates and image storage.
+- Clickable dashboard summary cards with filtered destinations
+- Product filtering with dependent category/game/brand/set/item-type options
+- Newest/oldest product sorting
+- No-sighting products in a collapsed watch/add-sighting section
+- Searchable multi-store selector on Restock Days
+- Store details show all restock schedules and audit history
+- Online-retailer-specific pickup, shipping, and required product link fields
+- Exact uploaded Target and Walmart image assets
+- 24 products, 36 sightings, 8 stores, and 12 schedule entries for testing
+- Duplicate protection for user-created Beyblade names
 
-## Prototype permissions
-
-- Any user can update a sighting's stock status. Every update records the prior status, new status, user, time, quantity, and optional note.
-- Delete actions are inside the three-dot menu and require the prototype administrator passcode `12345`.
-- This client-side passcode is only a visual prototype control. It must be replaced with authenticated administrator permissions before public launch.
+This prototype uses browser localStorage. Use Data > Reset demo data to reload packaged test data.

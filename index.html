@@ -30,9 +30,13 @@
         <div class="muted">Walmart + Target · 40 miles from 77304</div>
       </div>
       <div class="topbar-right">
-        <div class="actions top-actions">
-          <button class="btn" id="addProductBtn">+ Product</button>
-          <button class="btn primary" id="addSightingBtn">+ Sighting</button>
+        <div class="menu-wrap add-menu-wrap">
+          <button class="btn primary" id="addMenuBtn" aria-expanded="false">+ Add ▾</button>
+          <div class="context-menu add-menu" id="addMenu" hidden>
+            <button class="btn" id="addProductBtn" type="button">Product</button>
+            <button class="btn" id="addSightingBtn" type="button">Sighting</button>
+            <button class="btn" id="addScheduleBtn" type="button">Restock schedule</button>
+          </div>
         </div>
         <button id="mobileMenuBtn" class="icon-btn mobile-menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
       </div>
@@ -131,8 +135,9 @@
 
 <dialog id="scheduleDialog">
   <form id="scheduleForm">
-    <h2 id="scheduleDialogTitle">Update restock days</h2><input type="hidden" name="scheduleId"><input type="hidden" name="storeId">
+    <h2 id="scheduleDialogTitle">Update restock days</h2><input type="hidden" name="scheduleId">
     <div class="form-grid">
+      <label class="wide">Store<select name="storeId" id="scheduleStore" required></select></label>
       <label class="wide">Title<input name="title" required></label>
       <label>Category<select name="category"><option>All</option><option>TCG</option><option>Squishies</option><option>Beyblade</option></select></label>
       <label>Time<input name="time" placeholder="Morning, afternoon, 9 AM..."></label>

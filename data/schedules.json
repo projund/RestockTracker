@@ -1,4 +1,190 @@
 [
-  {"id":"s1","title":"Target Conroe Restock Days","retailer":"Target","storeId":"target-1115","category":"All","days":["Monday","Wednesday","Friday","Saturday"],"time":"Morning","type":"Observed pattern","notes":"Example local pattern; not a guarantee.","updates":[]},
-  {"id":"s2","title":"Conroe Walmart TCG Vendor Check","retailer":"Walmart","storeId":"walmart-400","category":"TCG","days":["Thursday"],"time":"Afternoon","type":"Unconfirmed","notes":"Placeholder for a store-specific pattern.","updates":[]}
+  {
+    "id": "s1",
+    "title": "Target Conroe TCG Restock",
+    "storeId": "target-1115",
+    "category": "TCG",
+    "days": [
+      "Monday",
+      "Wednesday",
+      "Friday"
+    ],
+    "time": "Morning",
+    "type": "Observed pattern",
+    "notes": "Vendor timing varies.",
+    "updates": [
+      {
+        "previousDays": [],
+        "newDays": [
+          "Monday",
+          "Wednesday",
+          "Friday"
+        ],
+        "updatedBy": "Deanna",
+        "updatedAt": "2026-08-01T15:00:00Z",
+        "note": "Initial test schedule."
+      }
+    ],
+    "retailer": "Target"
+  },
+  {
+    "id": "s2",
+    "title": "Target Conroe Toys Restock",
+    "storeId": "target-1115",
+    "category": "Beyblade",
+    "days": [
+      "Tuesday",
+      "Saturday"
+    ],
+    "time": "Afternoon",
+    "type": "Observed pattern",
+    "notes": "Toy freight may appear later in the day.",
+    "updates": [],
+    "retailer": "Target"
+  },
+  {
+    "id": "s3",
+    "title": "Conroe Walmart TCG Vendor Check",
+    "storeId": "walmart-400",
+    "category": "TCG",
+    "days": [
+      "Thursday"
+    ],
+    "time": "Afternoon",
+    "type": "Unconfirmed",
+    "notes": "Community-observed vendor visit.",
+    "updates": [],
+    "retailer": "Walmart"
+  },
+  {
+    "id": "s4",
+    "title": "Conroe Walmart Toy Freight",
+    "storeId": "walmart-400",
+    "category": "Squishies",
+    "days": [
+      "Tuesday",
+      "Friday"
+    ],
+    "time": "Morning",
+    "type": "Observed pattern",
+    "notes": "General toy freight.",
+    "updates": [],
+    "retailer": "Walmart"
+  },
+  {
+    "id": "s5",
+    "title": "Woodlands Walmart Collectibles",
+    "storeId": "walmart-3213",
+    "category": "All",
+    "days": [
+      "Wednesday",
+      "Saturday"
+    ],
+    "time": "Morning",
+    "type": "Observed pattern",
+    "notes": "Check front collectibles and toy aisle.",
+    "updates": [],
+    "retailer": "Walmart"
+  },
+  {
+    "id": "s6",
+    "title": "Woodlands Target TCG",
+    "storeId": "target-684",
+    "category": "TCG",
+    "days": [
+      "Friday"
+    ],
+    "time": "Afternoon",
+    "type": "Unconfirmed",
+    "notes": "Not guaranteed.",
+    "updates": [],
+    "retailer": "Target"
+  },
+  {
+    "id": "s7",
+    "title": "Montgomery Walmart Freight",
+    "storeId": "walmart-3591",
+    "category": "All",
+    "days": [
+      "Monday",
+      "Thursday"
+    ],
+    "time": "Morning",
+    "type": "Expected delivery",
+    "notes": "General freight pattern.",
+    "updates": [],
+    "retailer": "Walmart"
+  },
+  {
+    "id": "s8",
+    "title": "Spring Walmart Toys",
+    "storeId": "walmart-3585",
+    "category": "Beyblade",
+    "days": [
+      "Wednesday"
+    ],
+    "time": "Evening",
+    "type": "Observed pattern",
+    "notes": "Often stocked after freight is worked.",
+    "updates": [],
+    "retailer": "Walmart"
+  },
+  {
+    "id": "s9",
+    "title": "Grand Parkway Target TCG",
+    "storeId": "target-2865",
+    "category": "TCG",
+    "days": [
+      "Tuesday",
+      "Friday"
+    ],
+    "time": "Morning",
+    "type": "Observed pattern",
+    "notes": "Cards may be vendor stocked.",
+    "updates": [],
+    "retailer": "Target"
+  },
+  {
+    "id": "s10",
+    "title": "Grand Parkway Target Toys",
+    "storeId": "target-2865",
+    "category": "Squishies",
+    "days": [
+      "Thursday"
+    ],
+    "time": "Afternoon",
+    "type": "Unconfirmed",
+    "notes": "Community pattern.",
+    "updates": [],
+    "retailer": "Target"
+  },
+  {
+    "id": "s11",
+    "title": "Woodlands Parkway Walmart",
+    "storeId": "walmart-3390",
+    "category": "All",
+    "days": [
+      "Tuesday",
+      "Saturday"
+    ],
+    "time": "Morning",
+    "type": "Expected delivery",
+    "notes": "Test schedule entry.",
+    "updates": [],
+    "retailer": "Walmart"
+  },
+  {
+    "id": "s12",
+    "title": "Target Woodlands Toys",
+    "storeId": "target-684",
+    "category": "Beyblade",
+    "days": [
+      "Monday"
+    ],
+    "time": "Evening",
+    "type": "Observed pattern",
+    "notes": "Separate from TCG schedule.",
+    "updates": [],
+    "retailer": "Target"
+  }
 ]
