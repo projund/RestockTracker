@@ -1,0 +1,134 @@
+[
+  {
+    "id": "a1-1",
+    "storeId": "walmart-400",
+    "category": "TCG",
+    "activityType": "Vendor stocking products",
+    "observedAt": "2026-08-03T10:30:00-05:00",
+    "source": "Personally observed",
+    "reporter": "Deanna",
+    "notes": "Sample one-time restock activity for testing.",
+    "photo": ""
+  },
+  {
+    "id": "a1-2",
+    "storeId": "walmart-400",
+    "category": "Beyblade",
+    "activityType": "Employee restocking",
+    "observedAt": "2026-08-03T14:30:00-05:00",
+    "source": "Employee information",
+    "reporter": "Deanna",
+    "notes": "Sample one-time restock activity for testing.",
+    "photo": ""
+  },
+  {
+    "id": "a2-1",
+    "storeId": "target-1115",
+    "category": "Beyblade",
+    "activityType": "Employee restocking",
+    "observedAt": "2026-08-02T10:30:00-05:00",
+    "source": "Personally observed",
+    "reporter": "Alexis",
+    "notes": "Sample one-time restock activity for testing.",
+    "photo": ""
+  },
+  {
+    "id": "a2-2",
+    "storeId": "target-1115",
+    "category": "Squishies",
+    "activityType": "Delivery pallet observed",
+    "observedAt": "2026-08-02T14:30:00-05:00",
+    "source": "Employee information",
+    "reporter": "Alexis",
+    "notes": "Sample one-time restock activity for testing.",
+    "photo": ""
+  },
+  {
+    "id": "a3-1",
+    "storeId": "walmart-3213",
+    "category": "Squishies",
+    "activityType": "Delivery pallet observed",
+    "observedAt": "2026-08-01T10:30:00-05:00",
+    "source": "Personally observed",
+    "reporter": "Jordan",
+    "notes": "Sample one-time restock activity for testing.",
+    "photo": ""
+  },
+  {
+    "id": "a3-2",
+    "storeId": "walmart-3213",
+    "category": "TCG",
+    "activityType": "Boxes moved to sales floor",
+    "observedAt": "2026-08-01T14:30:00-05:00",
+    "source": "Employee information",
+    "reporter": "Jordan",
+    "notes": "Sample one-time restock activity for testing.",
+    "photo": ""
+  },
+  {
+    "id": "a4-1",
+    "storeId": "target-684",
+    "category": "TCG",
+    "activityType": "Boxes moved to sales floor",
+    "observedAt": "2026-08-01T10:30:00-05:00",
+    "source": "Personally observed",
+    "reporter": "Deanna",
+    "notes": "Sample one-time restock activity for testing.",
+    "photo": ""
+  },
+  {
+    "id": "a4-2",
+    "storeId": "target-684",
+    "category": "Beyblade",
+    "activityType": "Employee mentioned expected stock",
+    "observedAt": "2026-08-01T14:30:00-05:00",
+    "source": "Employee information",
+    "reporter": "Deanna",
+    "notes": "Sample one-time restock activity for testing.",
+    "photo": ""
+  },
+  {
+    "id": "a5-1",
+    "storeId": "walmart-3591",
+    "category": "Beyblade",
+    "activityType": "Employee mentioned expected stock",
+    "observedAt": "2026-08-01T10:30:00-05:00",
+    "source": "Personally observed",
+    "reporter": "Alexis",
+    "notes": "Sample one-time restock activity for testing.",
+    "photo": ""
+  },
+  {
+    "id": "a6-1",
+    "storeId": "walmart-3585",
+    "category": "Squishies",
+    "activityType": "Vendor stocking products",
+    "observedAt": "2026-08-01T10:30:00-05:00",
+    "source": "Personally observed",
+    "reporter": "Jordan",
+    "notes": "Sample one-time restock activity for testing.",
+    "photo": ""
+  },
+  {
+    "id": "a7-1",
+    "storeId": "target-2865",
+    "category": "TCG",
+    "activityType": "Employee restocking",
+    "observedAt": "2026-08-01T10:30:00-05:00",
+    "source": "Personally observed",
+    "reporter": "Deanna",
+    "notes": "Sample one-time restock activity for testing.",
+    "photo": ""
+  },
+  {
+    "id": "a8-1",
+    "storeId": "walmart-3390",
+    "category": "Beyblade",
+    "activityType": "Delivery pallet observed",
+    "observedAt": "2026-08-01T10:30:00-05:00",
+    "source": "Personally observed",
+    "reporter": "Alexis",
+    "notes": "Sample one-time restock activity for testing.",
+    "photo": ""
+  }
+]

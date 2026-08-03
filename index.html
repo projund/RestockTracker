@@ -15,10 +15,9 @@
       <button data-view="dashboard" class="active">Dashboard</button>
       <button data-view="products">Products</button>
       <button data-view="stores">Stores</button>
-      <button data-view="calendar">Restock Days</button>
-      <button data-view="mapview">Map</button>
+      <button data-view="calendar">Restock Activity</button>
       <button data-view="watchlist">Watchlist</button>
-      <button data-view="history">History</button>
+      <button data-view="history">Archived Sightings</button>
       <button data-view="settings">Data</button>
     </nav>
   </aside>
@@ -35,7 +34,7 @@
           <div class="context-menu add-menu" id="addMenu" hidden>
             <button class="btn" id="addProductBtn" type="button">Product</button>
             <button class="btn" id="addSightingBtn" type="button">Sighting</button>
-            <button class="btn" id="addScheduleBtn" type="button">Restock schedule</button>
+            <button class="btn" id="addActivityBtn" type="button">Restock activity</button>
           </div>
         </div>
         <button id="mobileMenuBtn" class="icon-btn mobile-menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
@@ -45,7 +44,6 @@
     <section id="products" class="view"></section>
     <section id="stores" class="view"></section>
     <section id="calendar" class="view"></section>
-    <section id="mapview" class="view"><div id="map" class="map"></div></section>
     <section id="watchlist" class="view"></section>
     <section id="history" class="view"></section>
     <section id="settings" class="view"></section>
@@ -97,8 +95,8 @@
     <div class="form-grid">
       <label>Product<select name="productId" required></select></label>
       <label>Store<select name="storeId" required></select></label>
-      <label>Status<select name="status"><option value="in-stock">In stock</option><option value="low-stock">Low stock</option><option value="out-of-stock">Out of stock</option><option value="unknown">Unknown</option></select></label>
-      <label>Quantity<input name="quantity" type="number" min="0" placeholder="Unknown is okay"></label>
+      <label>Status<select name="status" id="sightingStatus"><option value="in-stock">In stock</option><option value="low-stock">Low stock</option><option value="out-of-stock">Out of stock</option><option value="unknown">Unknown</option></select></label>
+      <label>Quantity<input name="quantity" id="sightingQuantity" type="number" min="0" placeholder="Unknown is okay"></label>
       <label>Sighting time<input name="seenAt" type="datetime-local" required></label>
       <label>Reporter<input name="reporter" value="Deanna" required></label>
       <label>In-store location<input name="inStoreLocation" placeholder="Aisle, endcap, register area..."></label>
@@ -119,8 +117,8 @@
   <form id="statusForm">
     <h2>Update sighting</h2><input type="hidden" name="reportId">
     <div class="form-grid">
-      <label>New status<select name="status"><option value="in-stock">In stock</option><option value="low-stock">Low stock</option><option value="out-of-stock">Out of stock</option><option value="unknown">Unknown</option></select></label>
-      <label>Quantity<input name="quantity" type="number" min="0" placeholder="Leave blank if unknown"></label>
+      <label>New status<select name="status" id="statusSelect"><option value="in-stock">In stock</option><option value="low-stock">Low stock</option><option value="out-of-stock">Out of stock</option><option value="unknown">Unknown</option></select></label>
+      <label>Quantity<input name="quantity" id="statusQuantity" type="number" min="0" placeholder="Leave blank if unknown"></label>
       <label>Updated by<input name="updatedBy" value="Deanna" required></label>
       <label>New sighting time<input name="updatedSeenAt" type="datetime-local" required></label>
       <label class="wide">New sighting photo<input name="photoFile" type="file" accept="image/*"></label>
@@ -133,23 +131,36 @@
 
 <dialog id="detailDialog" class="detail-dialog"><div id="detailContent"></div></dialog>
 
-<dialog id="scheduleDialog">
-  <form id="scheduleForm">
-    <h2 id="scheduleDialogTitle">Update restock days</h2><input type="hidden" name="scheduleId">
+<dialog id="activityDialog">
+  <form id="activityForm">
+    <h2>Report restock activity</h2>
+    <p class="muted">Submit a one-time observation. This will not change a confirmed recurring schedule.</p>
     <div class="form-grid">
-      <label class="wide">Store<select name="storeId" id="scheduleStore" required></select></label>
-      <label class="wide">Title<input name="title" required></label>
-      <label>Category<select name="category"><option>All</option><option>TCG</option><option>Squishies</option><option>Beyblade</option></select></label>
-      <label>Time<input name="time" placeholder="Morning, afternoon, 9 AM..."></label>
-      <fieldset class="wide weekday-picker"><legend>Restock days</legend>
-        <label><input type="checkbox" name="days" value="Monday">Mon</label><label><input type="checkbox" name="days" value="Tuesday">Tue</label><label><input type="checkbox" name="days" value="Wednesday">Wed</label><label><input type="checkbox" name="days" value="Thursday">Thu</label><label><input type="checkbox" name="days" value="Friday">Fri</label><label><input type="checkbox" name="days" value="Saturday">Sat</label><label><input type="checkbox" name="days" value="Sunday">Sun</label>
-      </fieldset>
-      <label>Updated by<input name="updatedBy" value="Deanna" required></label>
-      <label>Pattern type<select name="type"><option>Observed pattern</option><option>Expected delivery</option><option>Unconfirmed</option></select></label>
-      <label class="wide">Update note<textarea name="updateNote" placeholder="Why are you changing this schedule?"></textarea></label>
-      <label class="wide">Schedule notes<textarea name="notes"></textarea></label>
+      <label>Store<select name="storeId" required></select></label>
+      <label>Category<select name="category"><option>TCG</option><option>Squishies</option><option>Beyblade</option><option>Multiple categories</option></select></label>
+      <label>Activity type<select name="activityType"><option>Vendor stocking products</option><option>Employee restocking</option><option>Delivery pallet observed</option><option>Boxes moved to sales floor</option><option>Employee mentioned expected stock</option><option>Other restock activity</option></select></label>
+      <label>Observed time<input name="observedAt" type="datetime-local" required></label>
+      <label>Source<select name="source"><option>Personally observed</option><option>Employee information</option><option>Community report</option></select></label>
+      <label>Reporter<input name="reporter" value="Deanna" required></label>
+      <label class="wide">Optional photo<input name="photoFile" type="file" accept="image/*"></label>
+      <label class="wide">Notes<textarea name="notes" placeholder="What did you observe?"></textarea></label>
     </div>
-    <div class="modal-actions"><button type="button" class="btn close">Cancel</button><button class="btn primary">Save schedule</button></div>
+    <div class="modal-actions"><button type="button" class="btn close">Cancel</button><button class="btn primary">Submit activity</button></div>
+  </form>
+</dialog>
+
+<dialog id="scheduleRequestDialog">
+  <form id="scheduleRequestForm">
+    <h2>Suggest a confirmed schedule change</h2>
+    <p class="muted">The current schedule will remain unchanged until an admin reviews this request.</p>
+    <div class="form-grid">
+      <label class="wide">Store<select name="storeId" required></select></label>
+      <label class="wide">Proposed change<textarea name="proposedChange" required placeholder="Describe the days, categories, or time window that should change."></textarea></label>
+      <label>Supporting observation time<input name="observedAt" type="datetime-local"></label>
+      <label>Submitted by<input name="submittedBy" value="Deanna" required></label>
+      <label class="wide">Reason and evidence<textarea name="reason" required></textarea></label>
+    </div>
+    <div class="modal-actions"><button type="button" class="btn close">Cancel</button><button class="btn primary">Send for review</button></div>
   </form>
 </dialog>
 

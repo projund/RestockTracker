@@ -1,17 +1,42 @@
 [
   {
-    "id": "s1",
-    "title": "Target Conroe TCG Restock",
+    "id": "schedule-walmart-400",
+    "storeId": "walmart-400",
+    "retailer": "Walmart",
+    "categories": [
+      "TCG",
+      "Squishies"
+    ],
+    "days": [
+      "Thursday",
+      "Tuesday",
+      "Friday"
+    ],
+    "time": "Afternoon / Morning",
+    "type": "Confirmed pattern",
+    "confirmedBy": "Repeated consistent activity pattern",
+    "notes": "Community-observed vendor visit. General toy freight.",
+    "updates": []
+  },
+  {
+    "id": "schedule-target-1115",
     "storeId": "target-1115",
-    "category": "TCG",
+    "retailer": "Target",
+    "categories": [
+      "TCG",
+      "Beyblade"
+    ],
     "days": [
       "Monday",
       "Wednesday",
-      "Friday"
+      "Friday",
+      "Tuesday",
+      "Saturday"
     ],
-    "time": "Morning",
-    "type": "Observed pattern",
-    "notes": "Vendor timing varies.",
+    "time": "Morning / Afternoon",
+    "type": "Confirmed pattern",
+    "confirmedBy": "Repeated consistent activity pattern",
+    "notes": "Vendor timing varies. Toy freight may appear later in the day.",
     "updates": [
       {
         "previousDays": [],
@@ -24,167 +49,110 @@
         "updatedAt": "2026-08-01T15:00:00Z",
         "note": "Initial test schedule."
       }
-    ],
-    "retailer": "Target"
+    ]
   },
   {
-    "id": "s2",
-    "title": "Target Conroe Toys Restock",
-    "storeId": "target-1115",
-    "category": "Beyblade",
-    "days": [
-      "Tuesday",
-      "Saturday"
-    ],
-    "time": "Afternoon",
-    "type": "Observed pattern",
-    "notes": "Toy freight may appear later in the day.",
-    "updates": [],
-    "retailer": "Target"
-  },
-  {
-    "id": "s3",
-    "title": "Conroe Walmart TCG Vendor Check",
-    "storeId": "walmart-400",
-    "category": "TCG",
-    "days": [
-      "Thursday"
-    ],
-    "time": "Afternoon",
-    "type": "Unconfirmed",
-    "notes": "Community-observed vendor visit.",
-    "updates": [],
-    "retailer": "Walmart"
-  },
-  {
-    "id": "s4",
-    "title": "Conroe Walmart Toy Freight",
-    "storeId": "walmart-400",
-    "category": "Squishies",
-    "days": [
-      "Tuesday",
-      "Friday"
-    ],
-    "time": "Morning",
-    "type": "Observed pattern",
-    "notes": "General toy freight.",
-    "updates": [],
-    "retailer": "Walmart"
-  },
-  {
-    "id": "s5",
-    "title": "Woodlands Walmart Collectibles",
+    "id": "schedule-walmart-3213",
     "storeId": "walmart-3213",
-    "category": "All",
+    "retailer": "Walmart",
+    "categories": [
+      "All"
+    ],
     "days": [
       "Wednesday",
       "Saturday"
     ],
     "time": "Morning",
-    "type": "Observed pattern",
+    "type": "Confirmed pattern",
+    "confirmedBy": "Repeated consistent activity pattern",
     "notes": "Check front collectibles and toy aisle.",
-    "updates": [],
-    "retailer": "Walmart"
+    "updates": []
   },
   {
-    "id": "s6",
-    "title": "Woodlands Target TCG",
+    "id": "schedule-target-684",
     "storeId": "target-684",
-    "category": "TCG",
-    "days": [
-      "Friday"
+    "retailer": "Target",
+    "categories": [
+      "TCG",
+      "Beyblade"
     ],
-    "time": "Afternoon",
-    "type": "Unconfirmed",
-    "notes": "Not guaranteed.",
-    "updates": [],
-    "retailer": "Target"
+    "days": [
+      "Friday",
+      "Monday"
+    ],
+    "time": "Afternoon / Evening",
+    "type": "Confirmed pattern",
+    "confirmedBy": "Repeated consistent activity pattern",
+    "notes": "Not guaranteed. Separate from TCG schedule.",
+    "updates": []
   },
   {
-    "id": "s7",
-    "title": "Montgomery Walmart Freight",
+    "id": "schedule-walmart-3591",
     "storeId": "walmart-3591",
-    "category": "All",
+    "retailer": "Walmart",
+    "categories": [
+      "All"
+    ],
     "days": [
       "Monday",
       "Thursday"
     ],
     "time": "Morning",
-    "type": "Expected delivery",
+    "type": "Confirmed pattern",
+    "confirmedBy": "Repeated consistent activity pattern",
     "notes": "General freight pattern.",
-    "updates": [],
-    "retailer": "Walmart"
+    "updates": []
   },
   {
-    "id": "s8",
-    "title": "Spring Walmart Toys",
+    "id": "schedule-walmart-3585",
     "storeId": "walmart-3585",
-    "category": "Beyblade",
+    "retailer": "Walmart",
+    "categories": [
+      "Beyblade"
+    ],
     "days": [
       "Wednesday"
     ],
     "time": "Evening",
-    "type": "Observed pattern",
+    "type": "Confirmed pattern",
+    "confirmedBy": "Repeated consistent activity pattern",
     "notes": "Often stocked after freight is worked.",
-    "updates": [],
-    "retailer": "Walmart"
+    "updates": []
   },
   {
-    "id": "s9",
-    "title": "Grand Parkway Target TCG",
+    "id": "schedule-target-2865",
     "storeId": "target-2865",
-    "category": "TCG",
+    "retailer": "Target",
+    "categories": [
+      "TCG",
+      "Squishies"
+    ],
     "days": [
       "Tuesday",
-      "Friday"
-    ],
-    "time": "Morning",
-    "type": "Observed pattern",
-    "notes": "Cards may be vendor stocked.",
-    "updates": [],
-    "retailer": "Target"
-  },
-  {
-    "id": "s10",
-    "title": "Grand Parkway Target Toys",
-    "storeId": "target-2865",
-    "category": "Squishies",
-    "days": [
+      "Friday",
       "Thursday"
     ],
-    "time": "Afternoon",
-    "type": "Unconfirmed",
-    "notes": "Community pattern.",
-    "updates": [],
-    "retailer": "Target"
+    "time": "Morning / Afternoon",
+    "type": "Confirmed pattern",
+    "confirmedBy": "Repeated consistent activity pattern",
+    "notes": "Cards may be vendor stocked. Community pattern.",
+    "updates": []
   },
   {
-    "id": "s11",
-    "title": "Woodlands Parkway Walmart",
+    "id": "schedule-walmart-3390",
     "storeId": "walmart-3390",
-    "category": "All",
+    "retailer": "Walmart",
+    "categories": [
+      "All"
+    ],
     "days": [
       "Tuesday",
       "Saturday"
     ],
     "time": "Morning",
-    "type": "Expected delivery",
+    "type": "Confirmed pattern",
+    "confirmedBy": "Repeated consistent activity pattern",
     "notes": "Test schedule entry.",
-    "updates": [],
-    "retailer": "Walmart"
-  },
-  {
-    "id": "s12",
-    "title": "Target Woodlands Toys",
-    "storeId": "target-684",
-    "category": "Beyblade",
-    "days": [
-      "Monday"
-    ],
-    "time": "Evening",
-    "type": "Observed pattern",
-    "notes": "Separate from TCG schedule.",
-    "updates": [],
-    "retailer": "Target"
+    "updates": []
   }
 ]
