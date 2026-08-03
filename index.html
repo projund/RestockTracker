@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Conroe Restock Tracker</title>
-  <link rel="stylesheet" href="css/styles.css?v=2026.08.03.3">
-  <link rel="stylesheet" href="css/revision-2026.08.03.1.css?v=2026.08.03.3">
+  <link rel="stylesheet" href="css/styles.css?v=2026.08.03.4">
+  <link rel="stylesheet" href="css/revision-2026.08.03.1.css?v=2026.08.03.4">
+  <link rel="stylesheet" href="css/ui-fixes-2026.08.03.4.css?v=2026.08.03.4">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 <body>
@@ -25,150 +26,36 @@
   <div id="navBackdrop" class="nav-backdrop"></div>
   <main>
     <header class="topbar">
-      <div>
-        <h1 id="pageTitle">Dashboard</h1>
-        <div class="muted">Walmart + Target · 40 miles from 77304</div>
-      </div>
+      <div><h1 id="pageTitle">Dashboard</h1><div class="muted">Walmart + Target · 40 miles from 77304</div></div>
       <div class="topbar-right">
-        <div class="menu-wrap add-menu-wrap">
-          <button class="btn primary" id="addMenuBtn" aria-expanded="false">+ Add ▾</button>
-          <div class="context-menu add-menu" id="addMenu" hidden>
-            <button class="btn" id="addProductBtn" type="button">New Product</button>
-            <button class="btn" id="addSightingBtn" type="button">Sighting</button>
-            <button class="btn" id="addActivityBtn" type="button">Restock</button>
-          </div>
-        </div>
+        <div class="menu-wrap add-menu-wrap"><button class="btn primary" id="addMenuBtn" aria-expanded="false">+ Add ▾</button><div class="context-menu add-menu" id="addMenu" hidden><button class="btn" id="addProductBtn" type="button">New Product</button><button class="btn" id="addSightingBtn" type="button">Sighting</button><button class="btn" id="addActivityBtn" type="button">Restock</button></div></div>
         <button id="mobileMenuBtn" class="icon-btn mobile-menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
       </div>
     </header>
-    <section id="dashboard" class="view active"></section>
-    <section id="products" class="view"></section>
-    <section id="stores" class="view"></section>
-    <section id="calendar" class="view"></section>
-    <section id="watchlist" class="view"></section>
-    <section id="history" class="view"></section>
-    <section id="settings" class="view"></section>
+    <section id="dashboard" class="view active"></section><section id="products" class="view"></section><section id="stores" class="view"></section><section id="calendar" class="view"></section><section id="watchlist" class="view"></section><section id="history" class="view"></section><section id="settings" class="view"></section>
   </main>
 </div>
-
-<dialog id="productDialog">
-  <form id="productForm">
-    <h2>Add product</h2>
-    <div class="form-grid">
-      <label>Category
-        <select name="category" id="productCategory">
-          <option>TCG</option><option>Squishies</option><option>Beyblade</option>
-        </select>
-      </label>
-      <label id="tcgGameWrap">Game
-        <select name="game" id="tcgGame">
-          <option>Pokémon</option><option>Riftbound</option><option>Disney Lorcana</option><option>Gundam</option><option>One Piece</option>
-        </select>
-      </label>
-      <label id="setWrap">Set<input name="setName" placeholder="e.g. Destined Rivals"></label>
-      <label id="brandWrap" hidden>Brand
-        <select name="brand" id="squishyBrand">
-          <option>NeeDoh</option><option>Squeeeze</option><option>Dumpling</option><option>Taba</option>
-        </select>
-      </label>
-      <label id="productNameWrap"><span id="productNameLabel">Item type</span><input name="productName" required placeholder="e.g. Elite Trainer Box"></label>
-      <label id="beyModelWrap" hidden>Beyblade model<input name="beyModel" placeholder="e.g. Flame Leon 3-80A"></label>
-      <label id="beyTypeWrap" hidden>Product type
-        <select name="beyType"><option>Starter</option><option>Booster</option><option>Multipack</option><option>Stadium set</option><option>Exclusive</option><option>Other</option></select>
-      </label>
-      <label>Retail price<input name="retail" type="number" min="0" step=".01"></label>
-      <label class="wide">Online product image URL<input name="image" type="url" placeholder="Direct image URL from a legitimate product page"></label>
-      <label class="wide">Product page source<input name="imageSource" type="url" placeholder="Page where the product image came from"></label>
-      <div id="beyLinks" class="wide nested-grid" hidden>
-        <label>Walmart exact product link<input name="walmart" type="url"></label>
-        <label>Target exact product link<input name="target" type="url"></label>
-      </div>
-      <label class="wide">UPC / TCIN / item number<input name="identifiers"></label>
-      <label class="wide">Notes<textarea name="notes"></textarea></label>
-    </div>
-    <div class="modal-actions"><button type="button" class="btn close">Cancel</button><button class="btn primary">Save</button></div>
-  </form>
-</dialog>
-
-<dialog id="sightingDialog">
-  <form id="sightingForm">
-    <h2>Add sighting</h2>
-    <div class="form-grid">
-      <label>Product<select name="productId" required></select></label>
-      <label>Store<select name="storeId" required></select></label>
-      <label>Status<select name="status" id="sightingStatus"><option value="in-stock">In stock</option><option value="low-stock">Low stock</option><option value="out-of-stock">Out of stock</option><option value="unknown">Unknown</option></select></label>
-      <label>Quantity<input name="quantity" id="sightingQuantity" type="number" min="0" placeholder="Unknown is okay"></label>
-      <label>Sighting time<input name="seenAt" type="datetime-local" required></label>
-      <label>Reporter<input name="reporter" value="Deanna" required></label>
-      <label>In-store location<input name="inStoreLocation" placeholder="Aisle, endcap, register area..."></label>
-      <label>Source<select name="source" id="sightingSource"><option>Manual sighting</option><option>Online retailer</option><option>Employee information</option><option>Community report</option></select></label>
-      <label class="online-only" hidden>Pickup<select name="pickup"><option>unknown</option><option>available</option><option>unavailable</option></select></label>
-      <label class="online-only" hidden>Shipping<select name="shipping"><option>unknown</option><option>available</option><option>unavailable</option></select></label>
-      <label class="wide online-only" hidden>Product link<input name="productLink" type="url" placeholder="Exact retailer product page"></label>
-      <label>In-store<select name="inStore"><option>available</option><option>unavailable</option><option>unknown</option></select></label>
-      <label>Confidence<select name="confidence"><option>High</option><option>Medium</option><option>Low</option></select></label>
-      <label class="wide">In-store sighting photo<input name="photoFile" type="file" accept="image/*"></label>
-      <label class="wide">Notes<textarea name="notes"></textarea></label>
-    </div>
-    <div class="modal-actions"><button type="button" class="btn close">Cancel</button><button class="btn primary">Save</button></div>
-  </form>
-</dialog>
-
-<dialog id="statusDialog">
-  <form id="statusForm">
-    <h2>Update sighting</h2><input type="hidden" name="reportId">
-    <div class="form-grid">
-      <label>New status<select name="status" id="statusSelect"><option value="in-stock">In stock</option><option value="low-stock">Low stock</option><option value="out-of-stock">Out of stock</option><option value="unknown">Unknown</option></select></label>
-      <label>Quantity<input name="quantity" id="statusQuantity" type="number" min="0" placeholder="Leave blank if unknown"></label>
-      <label>Updated by<input name="updatedBy" value="Deanna" required></label>
-      <label>New sighting time<input name="updatedSeenAt" type="datetime-local" required></label>
-      <label class="wide">New sighting photo<input name="photoFile" type="file" accept="image/*"></label>
-      <label class="wide">Or photo URL<input name="photo" type="url"></label>
-      <label class="wide">Update note<textarea name="note" placeholder="What changed or what did you find?"></textarea></label>
-    </div>
-    <div class="modal-actions"><button type="button" class="btn close">Cancel</button><button class="btn primary">Save update</button></div>
-  </form>
-</dialog>
-
+<dialog id="productDialog"><form id="productForm"><h2>Add product</h2><div class="form-grid">
+<label>Category<select name="category" id="productCategory"><option>TCG</option><option>Squishies</option><option>Beyblade</option></select></label>
+<label id="tcgGameWrap">Game<select name="game" id="tcgGame"><option>Pokémon</option><option>Riftbound</option><option>Disney Lorcana</option><option>Gundam</option><option>One Piece</option></select></label>
+<label id="setWrap">Set<input name="setName" placeholder="e.g. Destined Rivals"></label>
+<label id="brandWrap" hidden>Brand<select name="brand" id="squishyBrand"><option>NeeDoh</option><option>Squeeeze</option><option>Dumpling</option><option>Taba</option></select></label>
+<label id="productNameWrap"><span id="productNameLabel">Item type</span><input name="productName" required placeholder="e.g. Elite Trainer Box"></label>
+<label id="beyModelWrap" hidden>Beyblade model<input name="beyModel" placeholder="e.g. Sword Dran 3-60F"></label>
+<label id="beyTypeWrap" hidden>Product type<select name="beyType"><option>Starter</option><option>Booster</option><option>Dual Pack</option><option>Deluxe Set</option><option>Stadium Set</option><option>Stadium</option><option>Accessory</option><option>Exclusive</option><option>Other</option></select></label>
+<label>Retail price<input name="retail" type="number" min="0" step=".01"></label><label class="wide">Online product image URL<input name="image" type="url"></label><label class="wide">Product page source<input name="imageSource" type="url"></label><div id="beyLinks" class="wide nested-grid" hidden><label>Walmart exact product link<input name="walmart" type="url"></label><label>Target exact product link<input name="target" type="url"></label></div><label class="wide">UPC / TCIN / item number<input name="identifiers"></label><label class="wide">Notes<textarea name="notes"></textarea></label></div><div class="modal-actions"><button type="button" class="btn close">Cancel</button><button class="btn primary">Save</button></div></form></dialog>
+<dialog id="sightingDialog"><form id="sightingForm"><h2>Add sighting</h2><div class="form-grid">
+<label>Product<select name="productId" required></select></label><label>Store<select name="storeId" required></select></label><label>Status<select name="status" id="sightingStatus"><option value="in-stock">In stock</option><option value="low-stock">Low stock</option><option value="out-of-stock">Out of stock</option><option value="unknown">Unknown</option></select></label><label>Quantity<input name="quantity" id="sightingQuantity" type="number" min="0" placeholder="Unknown is okay"></label><label>Sighting time<input name="seenAt" type="datetime-local" required></label><label>Reporter<input name="reporter" value="Deanna" required></label><label>In-store location<input name="inStoreLocation"></label><label>Source<select name="source" id="sightingSource"><option>Manual sighting</option><option>Online retailer</option><option>Employee information</option><option>Community report</option></select></label><label class="online-only" hidden>Pickup<select name="pickup"><option>unknown</option><option>available</option><option>unavailable</option></select></label><label class="online-only" hidden>Shipping<select name="shipping"><option>unknown</option><option>available</option><option>unavailable</option></select></label><label class="wide online-only" hidden>Product link<input name="productLink" type="url"></label><label>In-store<select name="inStore"><option>available</option><option>unavailable</option><option>unknown</option></select></label><label>Confidence<select name="confidence"><option>High</option><option>Medium</option><option>Low</option></select></label><label class="wide">In-store sighting photo<input name="photoFile" type="file" accept="image/*"></label><label class="wide">Notes<textarea name="notes"></textarea></label></div><div class="modal-actions"><button type="button" class="btn close">Cancel</button><button class="btn primary">Save</button></div></form></dialog>
+<dialog id="statusDialog"><form id="statusForm"><h2>Update sighting</h2><input type="hidden" name="reportId"><div class="form-grid"><label>New status<select name="status" id="statusSelect"><option value="in-stock">In stock</option><option value="low-stock">Low stock</option><option value="out-of-stock">Out of stock</option><option value="unknown">Unknown</option></select></label><label>Quantity<input name="quantity" id="statusQuantity" type="number" min="0"></label><label>Updated by<input name="updatedBy" value="Deanna" required></label><label>New sighting time<input name="updatedSeenAt" type="datetime-local" required></label><label class="wide">New sighting photo<input name="photoFile" type="file" accept="image/*"></label><label class="wide">Or photo URL<input name="photo" type="url"></label><label class="wide">Update note<textarea name="note"></textarea></label></div><div class="modal-actions"><button type="button" class="btn close">Cancel</button><button class="btn primary">Save update</button></div></form></dialog>
 <dialog id="detailDialog" class="detail-dialog"><div id="detailContent"></div></dialog>
-
-<dialog id="activityDialog">
-  <form id="activityForm">
-    <h2>Report restock activity</h2>
-    <p class="muted">Submit a one-time observation. This will not change a confirmed recurring schedule.</p>
-    <div class="form-grid">
-      <label>Store<select name="storeId" required></select></label>
-      <label>Category<select name="category"><option>TCG</option><option>Squishies</option><option>Beyblade</option><option>Multiple categories</option></select></label>
-      <label>Activity type<select name="activityType"><option>Vendor stocking products</option><option>Employee restocking</option><option>Delivery pallet observed</option><option>Boxes moved to sales floor</option><option>Employee mentioned expected stock</option><option>Other restock activity</option></select></label>
-      <label>Observed time<input name="observedAt" type="datetime-local" required></label>
-      <label>Source<select name="source"><option>Personally observed</option><option>Employee information</option><option>Community report</option></select></label>
-      <label>Reporter<input name="reporter" value="Deanna" required></label>
-      <label class="wide">Optional photo<input name="photoFile" type="file" accept="image/*"></label>
-      <label class="wide">Notes<textarea name="notes" placeholder="What did you observe?"></textarea></label>
-    </div>
-    <div class="modal-actions"><button type="button" class="btn close">Cancel</button><button class="btn primary">Submit activity</button></div>
-  </form>
-</dialog>
-
-<dialog id="scheduleRequestDialog">
-  <form id="scheduleRequestForm">
-    <h2>Suggest a confirmed schedule change</h2>
-    <p class="muted">The current schedule will remain unchanged until an admin reviews this request.</p>
-    <div class="form-grid">
-      <label class="wide">Store<select name="storeId" required></select></label>
-      <label class="wide">Proposed change<textarea name="proposedChange" required placeholder="Describe the days, categories, or time window that should change."></textarea></label>
-      <label>Supporting observation time<input name="observedAt" type="datetime-local"></label>
-      <label>Submitted by<input name="submittedBy" value="Deanna" required></label>
-      <label class="wide">Reason and evidence<textarea name="reason" required></textarea></label>
-    </div>
-    <div class="modal-actions"><button type="button" class="btn close">Cancel</button><button class="btn primary">Send for review</button></div>
-  </form>
-</dialog>
-
+<dialog id="activityDialog"><form id="activityForm"><h2>Report restock activity</h2><p class="muted">Submit a one-time observation. This will not change a confirmed recurring schedule.</p><div class="form-grid"><label>Store<select name="storeId" required></select></label><label>Category<select name="category"><option>TCG</option><option>Squishies</option><option>Beyblade</option><option>Multiple categories</option></select></label><label>Activity type<select name="activityType"><option>Vendor stocking products</option><option>Employee restocking</option><option>Delivery pallet observed</option><option>Boxes moved to sales floor</option><option>Employee mentioned expected stock</option><option>Other restock activity</option></select></label><label>Observed time<input name="observedAt" type="datetime-local" required></label><label>Source<select name="source"><option>Personally observed</option><option>Employee information</option><option>Community report</option></select></label><label>Reporter<input name="reporter" value="Deanna" required></label><label class="wide">Optional photo<input name="photoFile" type="file" accept="image/*"></label><label class="wide">Notes<textarea name="notes"></textarea></label></div><div class="modal-actions"><button type="button" class="btn close">Cancel</button><button class="btn primary">Submit activity</button></div></form></dialog>
+<dialog id="scheduleRequestDialog"><form id="scheduleRequestForm"><h2>Suggest a confirmed schedule change</h2><p class="muted">The current schedule will remain unchanged until an admin reviews this request.</p><div class="form-grid"><label class="wide">Store<select name="storeId" required></select></label><label class="wide">Proposed change<textarea name="proposedChange" required></textarea></label><label>Supporting observation time<input name="observedAt" type="datetime-local"></label><label>Submitted by<input name="submittedBy" value="Deanna" required></label><label class="wide">Reason and evidence<textarea name="reason" required></textarea></label></div><div class="modal-actions"><button type="button" class="btn close">Cancel</button><button class="btn primary">Send for review</button></div></form></dialog>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script type="module" src="js/app.js?v=2026.08.03.3"></script>
-<script src="js/revision-preflight-2026.08.03.1.js?v=2026.08.03.3"></script>
-<script type="module" src="js/revision-2026.08.03.1.js?v=2026.08.03.3"></script>
-<script src="js/sighting-wizard-2026.08.03.2.js?v=2026.08.03.3"></script>
-</body>
-</html>
+<script src="js/catalog-2026.08.03.4.js?v=2026.08.03.4"></script>
+<script type="module" src="js/app.js?v=2026.08.03.4"></script>
+<script src="js/revision-preflight-2026.08.03.1.js?v=2026.08.03.4"></script>
+<script type="module" src="js/revision-2026.08.03.1.js?v=2026.08.03.4"></script>
+<script src="js/sighting-wizard-2026.08.03.2.js?v=2026.08.03.4"></script>
+<script src="js/sighting-other-2026.08.03.4.js?v=2026.08.03.4"></script>
+<script src="js/ui-fixes-2026.08.03.4.js?v=2026.08.03.4"></script>
+</body></html>
