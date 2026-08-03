@@ -49,3 +49,36 @@
 @media(max-width:1200px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.filter-panel{grid-template-columns:repeat(3,minmax(170px,1fr))}.week-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:900px){.store-grid{grid-template-columns:1fr}.filter-panel{grid-template-columns:repeat(2,minmax(150px,1fr))}.week-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.stats{grid-template-columns:1fr}.product-toolbar{grid-template-columns:1fr auto}.product-toolbar .segmented{grid-column:1/-1}.filter-panel{grid-template-columns:1fr}.product-card{grid-template-columns:50px minmax(0,1fr)}.product-card>.btn{grid-column:1/-1;width:100%}.products-grid{grid-template-columns:1fr}.store-card{grid-template-columns:50px minmax(0,1fr);padding:13px}.store-card .store-icon{width:48px;height:48px}.report-card{grid-template-columns:1fr}.report-card>div:last-child{text-align:left}.week-grid{grid-template-columns:1fr}}
+
+/* Products controls and map repair */
+.product-toolbar{display:grid;grid-template-columns:minmax(260px,1fr) auto auto;gap:10px;align-items:center;margin-bottom:12px}
+.product-toolbar input{height:44px;background:#0b1722;color:var(--text);border:1px solid var(--border);border-radius:11px;padding:0 14px}
+.filter-toggle.active{border-color:var(--accent);box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 35%,transparent)}
+.filter-panel{display:block;padding:16px;margin:0 0 14px;background:var(--panel);border:1px solid var(--border);border-radius:15px}
+.filter-panel[hidden]{display:none!important}
+.filter-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.filter-grid label{display:grid;gap:6px;min-width:0;color:var(--muted);font-size:13px;font-weight:650}
+.filter-grid select{width:100%;height:42px;min-width:0;background:#0b1722;color:var(--text);border:1px solid var(--border);border-radius:10px;padding:0 10px}
+.filter-actions{display:flex;justify-content:flex-end;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.filter-actions .btn{padding-inline:18px}
+.filter-chips{margin:0 0 12px}
+.no-sightings.top-section{margin:0 0 18px;border:1px solid #345069;background:linear-gradient(180deg,#112336,#0e1c29)}
+.no-sightings.top-section summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 17px;list-style:none}
+.no-sightings.top-section summary::-webkit-details-marker{display:none}
+.no-sightings.top-section summary span:before{content:'▸';display:inline-block;margin-right:9px;transition:transform .15s}
+.no-sightings.top-section[open] summary span:before{transform:rotate(90deg)}
+.no-sightings.top-section summary b{min-width:32px;text-align:center;background:#1a3a52;border:1px solid #315770;border-radius:999px;padding:3px 9px}
+.results-heading{display:flex;align-items:end;justify-content:space-between;margin:8px 2px 12px;color:var(--muted)}
+.results-heading h2{margin:0;color:var(--text);font-size:18px}
+.results-heading span{font-size:13px}
+#map{height:clamp(480px,70vh,760px);min-height:480px;width:100%;background:#0b1722}
+#map.leaflet-container{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+.map-error{height:100%;min-height:480px;display:grid;place-content:center;gap:8px;text-align:center;color:var(--muted);padding:30px}
+.map-error strong{color:var(--text);font-size:20px}
+.retailer-map-icon{background:transparent!important;border:0!important}
+.map-pin{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;overflow:hidden;border:3px solid #fff;box-shadow:0 5px 18px #0009;transform:none}
+.map-pin img{width:100%;height:100%;object-fit:cover}
+.map-pin.target{background:#fff}.map-pin.walmart{background:#1261d8}
+@media(max-width:1100px){.filter-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:800px){.filter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-toolbar{grid-template-columns:minmax(0,1fr) auto}.product-toolbar .segmented{grid-column:1/-1;justify-self:start}}
+@media(max-width:560px){.filter-grid{grid-template-columns:1fr}.product-toolbar{grid-template-columns:1fr auto}.filter-actions{justify-content:stretch}.filter-actions .btn{width:100%}.results-heading{align-items:flex-start;flex-direction:column;gap:3px}#map{min-height:420px;height:65vh}}
