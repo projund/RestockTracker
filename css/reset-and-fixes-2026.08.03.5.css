@@ -1,0 +1,11 @@
+/* Clean build 2026.08.03.5 */
+.no-sightings{display:none!important}
+@media(max-width:800px){
+  #mobileMenuBtn{position:relative;z-index:10020;min-width:56px;min-height:56px;font-size:30px;line-height:1}
+  body.nav-open #mobileMenuBtn{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);right:14px;background:var(--panel);border:1px solid var(--border);box-shadow:0 8px 24px #0009}
+  #sidebar.sidebar{z-index:10010;max-width:calc(100vw - 72px);padding-top:calc(env(safe-area-inset-top,0px) + 18px)}
+  #navBackdrop.nav-backdrop{z-index:10000}
+  .leaflet-pane,.leaflet-control{z-index:auto!important}
+  body:not(.nav-open) #sidebar.sidebar:not(.open){transform:translateX(100%)}
+  .wizard-step select{max-width:100%;width:100%}
+}
