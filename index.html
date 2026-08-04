@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Conroe Restock Tracker</title>
-  <link rel="stylesheet" href="css/styles.css?v=2026.08.03.4">
-  <link rel="stylesheet" href="css/revision-2026.08.03.1.css?v=2026.08.03.4">
-  <link rel="stylesheet" href="css/ui-fixes-2026.08.03.4.css?v=2026.08.03.4">
+  <link rel="stylesheet" href="css/styles.css?v=2026.08.03.5">
+  <link rel="stylesheet" href="css/revision-2026.08.03.1.css?v=2026.08.03.5">
+  <link rel="stylesheet" href="css/ui-fixes-2026.08.03.4.css?v=2026.08.03.5">
+  <link rel="stylesheet" href="css/reset-and-fixes-2026.08.03.5.css?v=2026.08.03.5">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 <body>
@@ -51,11 +52,12 @@
 <dialog id="activityDialog"><form id="activityForm"><h2>Report restock activity</h2><p class="muted">Submit a one-time observation. This will not change a confirmed recurring schedule.</p><div class="form-grid"><label>Store<select name="storeId" required></select></label><label>Category<select name="category"><option>TCG</option><option>Squishies</option><option>Beyblade</option><option>Multiple categories</option></select></label><label>Activity type<select name="activityType"><option>Vendor stocking products</option><option>Employee restocking</option><option>Delivery pallet observed</option><option>Boxes moved to sales floor</option><option>Employee mentioned expected stock</option><option>Other restock activity</option></select></label><label>Observed time<input name="observedAt" type="datetime-local" required></label><label>Source<select name="source"><option>Personally observed</option><option>Employee information</option><option>Community report</option></select></label><label>Reporter<input name="reporter" value="Deanna" required></label><label class="wide">Optional photo<input name="photoFile" type="file" accept="image/*"></label><label class="wide">Notes<textarea name="notes"></textarea></label></div><div class="modal-actions"><button type="button" class="btn close">Cancel</button><button class="btn primary">Submit activity</button></div></form></dialog>
 <dialog id="scheduleRequestDialog"><form id="scheduleRequestForm"><h2>Suggest a confirmed schedule change</h2><p class="muted">The current schedule will remain unchanged until an admin reviews this request.</p><div class="form-grid"><label class="wide">Store<select name="storeId" required></select></label><label class="wide">Proposed change<textarea name="proposedChange" required></textarea></label><label>Supporting observation time<input name="observedAt" type="datetime-local"></label><label>Submitted by<input name="submittedBy" value="Deanna" required></label><label class="wide">Reason and evidence<textarea name="reason" required></textarea></label></div><div class="modal-actions"><button type="button" class="btn close">Cancel</button><button class="btn primary">Send for review</button></div></form></dialog>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="js/catalog-2026.08.03.4.js?v=2026.08.03.4"></script>
-<script type="module" src="js/app.js?v=2026.08.03.4"></script>
-<script src="js/revision-preflight-2026.08.03.1.js?v=2026.08.03.4"></script>
-<script type="module" src="js/revision-2026.08.03.1.js?v=2026.08.03.4"></script>
-<script src="js/sighting-wizard-2026.08.03.2.js?v=2026.08.03.4"></script>
-<script src="js/sighting-other-2026.08.03.4.js?v=2026.08.03.4"></script>
-<script src="js/ui-fixes-2026.08.03.4.js?v=2026.08.03.4"></script>
+<script src="js/catalog-2026.08.03.4.js?v=2026.08.03.5"></script>
+<script src="js/reset-and-fixes-2026.08.03.5.js?v=2026.08.03.5"></script>
+<script type="module" src="js/app.js?v=2026.08.03.5"></script>
+<script src="js/revision-preflight-2026.08.03.1.js?v=2026.08.03.5"></script>
+<script type="module" src="js/revision-2026.08.03.1.js?v=2026.08.03.5"></script>
+<script src="js/sighting-wizard-2026.08.03.2.js?v=2026.08.03.5"></script>
+<script src="js/sighting-other-2026.08.03.4.js?v=2026.08.03.5"></script>
+<script src="js/ui-fixes-2026.08.03.4.js?v=2026.08.03.5"></script>
 </body></html>
