@@ -94,4 +94,11 @@
     document.querySelector('#detailDialog .detail-close-fixed')?.remove();
     document.querySelector('#detailDialog .detail-actions-menu')?.remove();
   });
+
+  if(!document.querySelector('script[data-listing-safety]')){
+    const script=document.createElement('script');
+    script.src='js/listing-safety-and-product-form-2026.08.03.6.js?v=2026.08.03.6';
+    script.dataset.listingSafety='true';
+    document.head.append(script);
+  }
 })();
