@@ -6,7 +6,7 @@
   if(localStorage.getItem(RESET_KEY)!==BUILD){
     let products=[];
     try{products=JSON.parse(localStorage.getItem('crt-v4-products')||'[]')}catch{}
-    products=products.filter(p=>p&&p.id&&p.category).map(p=>({...p,favorite:false,hidden:false,active:true}));
+    products=products.filter(p=>p&&String(p.id||'').startsWith('catalog-')&&p.category).map(p=>({...p,favorite:false,hidden:false,active:true}));
     storageKeys.forEach(key=>localStorage.removeItem(key));
     localStorage.setItem('crt-v4-products',JSON.stringify(products));
     const now=Date.now();
@@ -57,7 +57,6 @@
     form.dataset.resetFlowPatched='true';
 
     const allProducts=()=>{try{return JSON.parse(localStorage.getItem('crt-v4-products')||'[]').filter(p=>p.active!==false)}catch{return[]}};
-    const clearSelect=node=>{if(!node)return;node.value='';node.dispatchEvent(new Event('change',{bubbles:false}));};
     const clearLaterFields=()=>{['storeId','source','pickup','shipping','productLink','status','quantity','inStoreLocation','inStore','confidence','notes'].forEach(name=>{const field=form.elements[name];if(!field)return;if(field.tagName==='SELECT')field.selectedIndex=0;else field.value='';});};
     const fillBeyblades=()=>{
       product.innerHTML='<option value="">Choose a Beyblade item</option>';
